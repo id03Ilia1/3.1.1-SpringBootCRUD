@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div style='float: right; '><a th:href="@{/logout}">LOGOUT</a></div>
+    <title>Hello Admin</title>
+</head>
+<body>
+<div>
+    <h1 th:text="AllDataBaseUsers"></h1>
+    <th:block th:each="msg : ${users}">
+        <a th:href="@{/admin/{id}(id=${msg.getId()})}" th:utext="${msg.getFirstName() +' '+ msg.getLastName()+' '+msg.getUsername()}"></a>
+        <a th:each="roles : ${msg.getRoles()}" th:text = "${roles.getRole()}+' '"></a>
+        <br/>
+    </th:block>
+
+    <br/>
+    <tr>
+        <th>
+            <form th:method="GET" th:action="@{/admin/new}">
+                <input type="submit" value="Add New User"/>
+            </form>
+        </th>
+        <th>
+            <form th:method="GET" th:action="@{/user}">
+                <input type="submit" value="ADMIN roles"/>
+            </form>
+        </th>
+    </tr>
+</div>
+</body>
+</html>

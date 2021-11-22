@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div style='float: right; '><a th:href="@{/logout}">LOGOUT</a></div>
+    <title></title>
+</head>
+<body>
+<div>
+    <form method="POST" action="/login">
+        <input name="j_username" id="Username"/>
+        <label for="Username">Enter your Username</label>
+        <br>
+        <input name="j_password" id="Password"/>
+        <label for="Password">Enter your Password</label>
+        <br>
+        <input type="submit" value="SIGN IN"/>
+    </form>
+</div>
+</body>
+</html>

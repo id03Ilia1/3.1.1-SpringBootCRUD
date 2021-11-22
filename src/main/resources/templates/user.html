@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <div style='float: right; '><a th:href="@{/logout}">LOGOUT</a></div>
+  <title>Hello User</title>
+</head>
+<body>
+<div>
+    <td th:object="${user}">
+      <a th:text="${user.getUsername()+' '+user.getPassword()}"></a>
+      <a th:each="roles : ${user.getRoles()}" th:text = "${roles.getRole()}+' '"></a>
+    </td>
+</div>
+</body>
+</html>

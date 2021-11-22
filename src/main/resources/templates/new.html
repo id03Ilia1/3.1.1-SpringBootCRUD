@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div style='float: right; '><a th:href="@{/logout}">LOGOUT</a></div>
+    <title>Add new user</title>
+</head>
+<body>
+    <form th:method = "POST" th:action="@{/admin}" th:object="${user}">
+        <input required type="text" th:field="${user.firstName}" id="firstName"/>
+        <label for="firstName"><-Enter name</label>
+        <br>
+        <input type="text" th:field="${user.lastName}" id="lastname">
+        <label for="lastname"><-Enter lastname</label>
+        <br>
+        <input type="text" th:field="${user.username}" id="login">
+        <label for="login"><-Enter login</label>
+        <br>
+        <input type="text" th:field="${user.password}" id="password">
+        <label for="password"><-Enter password</label>
+        <br>
+        <select id="roles" th:field="*{roles}" size="3" multiple="multiple">
+            <option th:each="role : ${roles}"
+                    th:value="${role.getId()}"
+                    th:text="${role.role}"></option>
+        </select>
+        <label for="roles">* It is necessary to choose a role(s)</label>
+        <br>
+        <input type="submit" value="CreateNew"/>
+    </form>>
+</body>
+</html>
